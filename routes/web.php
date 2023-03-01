@@ -29,8 +29,7 @@ use App\Http\Controllers\Main\WhoController;
 use App\Http\Controllers\Main\MessageController;
 use App\Http\Controllers\Command\CommandController;
 use App\Mail\WelcomeEmail;
-// use Illuminate\Support\Facades\Mail;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Models\User;
@@ -51,7 +50,7 @@ use App\Http\Controllers\Auth\Social\SocialAuthController;
 
 Route::get('/sitemap.xml',[HomeController::class, 'sitemap'])->name('avrt.sitemap');
 Route::get('/', [HomeController::class, 'main'])->name('avrt.home')->middleware('global');
- 
+
 Route::group(['prefix' => 'avrt','middleware'=>'global'], function () {
     Route::get('faq', [FAQController::class, 'main'])->name('avrt.faq');
     Route::get('back', [BackgroundController::class, 'main'])->name('avrt.back');
@@ -122,7 +121,7 @@ Route::group(['prefix'=>'/admin','middleware' => 'verifyadmin'], function () {
     Route::get('/pages/contact','contact')->name('pages.contact');
     });
 });
-  
+
 Route::get('/send/mail', function () {
                $user_exist=User::where('email','zonewebsites2@gmail.com')->first();
                $mail=Mail::to('avrt@avrt.com')->send(new PasswordMail($user_exist));
@@ -166,9 +165,9 @@ Route::get('/mail-test',function(){
 });
 
 Route::get('/test/command',function(){
-    
+
     dd(php_info());
-    
+
 });
 
 });

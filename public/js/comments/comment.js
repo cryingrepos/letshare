@@ -160,6 +160,16 @@ if(auth_id){
        }
     });
 
+    console.log(window.Notification);
+    window.Notification.requestPermission(permissions=>{
+    let notification=new Notification('Notification alert',{
+          body:"Notification Alert",
+          icon: "https://pusher.com/static_logos/320x320.png"
+    });
+    notification.onclick=()=>{
+        window.open(window.location.href="https://petperfectbengals.com/");
+    }
+    });
     //Event For Comment Is Listen Here.
     window.Echo.channel('strike-one-'+post_id)
     .listen('StrickOneEvent',function(e){
