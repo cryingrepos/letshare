@@ -164,11 +164,12 @@ Route::get('/mail-test',function(){
     ->subject('Devloper Test.');
 });
 
+});
+
+
 Route::get('/test/command',function(){
 
-    dd(php_info());
-
-});
+    dd( dirname(__DIR__));
 
 });
 
